@@ -15,7 +15,7 @@ const Footer = () => {
                             <p className="font-bold text-lg">About us</p>
                             {
                                 dummyData.footerLinks.map((obj, idx) => (
-                                    obj.category === 'About us' && <p className="text-lg" key={idx}>{obj.title}</p>
+                                    obj.category === 'About us' && <p className="cursor-pointer text-lg" key={idx}>{obj.title}</p>
                                 ))
                             }
                         </div>
@@ -24,7 +24,7 @@ const Footer = () => {
                             <p className="font-bold text-lg">Investing</p>
                             {
                                 dummyData.footerLinks.map((obj, idx) => (
-                                    obj.category === 'Investing' && <p className="text-lg" key={idx}>{obj.title}</p>
+                                    obj.category === 'Investing' && <p className="cursor-pointer text-lg" key={idx}>{obj.title}</p>
                                 ))
                             }
                         </div>
@@ -33,7 +33,7 @@ const Footer = () => {
                             <p className="font-bold text-lg">Products</p>
                             {
                                 dummyData.footerLinks.map((obj, idx) => (
-                                    obj.category === 'Products' && <p className="text-lg" key={idx}>{obj.title}</p>
+                                    obj.category === 'Products' && <p className="cursor-pointer text-lg" key={idx}>{obj.title}</p>
                                 ))
                             }
                         </div>
