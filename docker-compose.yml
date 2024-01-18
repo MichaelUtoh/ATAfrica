@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  db:
+    image: mongo:latest
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=atafrica_db
+      - MONGO_INITDB_ROOT_PASSWORD=atafrica_password
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo-data:/data/db
+  api:
+    build: ./backend
+    restart: always
+    ports:
+      - '8000:8000'
+    depends_on:
+      - db
+  frontend:
+    image: frontend
+    build: ./frontend
+    ports:
+      - 8080:8080
+
+volumes:
+  mongo-data:
