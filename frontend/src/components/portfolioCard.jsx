@@ -12,7 +12,7 @@ const PortfolioCard = () => {
     };
 
     const handlePortfolioData = async () => {
-        await axios.get(`http://localhost:8000/portfolios`)
+        await axios.get(`https://at-africa-backend-5hfnpu09x-michaelutoh.vercel.app/portfolios`)
             .then((res) => {
                 setPortfolioData(res.data.portfolios);
             }).catch((err) => {
@@ -24,6 +24,7 @@ const PortfolioCard = () => {
     }, [])
 
     const matchingPortfolio = portfolioData.find((portfolio) => portfolio.risk_score === tolerance);
+    console.log('------>', portfolioData);
 
     return (
         <>
