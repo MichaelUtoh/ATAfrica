@@ -11,39 +11,20 @@ const PortfolioCard = () => {
         setTolerance(parseInt(e.target.value, 10));
     };
 
-    // const handlePortfolioData = async () => {
-    //     await axios.get(`https://at-africa-backend-5hfnpu09x-michaelutoh.vercel.app/portfolios`)
-    //         .then((res) => {
-    //             setPortfolioData(res.data.portfolios);
-    //         }).catch((err) => {
-    //             console.error(err);
-    //         })
-    // }
-
     const handlePortfolioData = async () => {
-        try {
-            const cachedData = localStorage.getItem('portfolioData');
-
-            if (cachedData) {
-                setPortfolioData(JSON.parse(cachedData));
-            } else {
-                const response = await axios.get('https://at-africa-backend-5hfnpu09x-michaelutoh.vercel.app/portfolios');
-                const data = response.data.portfolios;
-                setPortfolioData(data);
-
-                localStorage.setItem('portfolioData', JSON.stringify(data));
-            }
-        } catch (err) {
-            console.error(err);
-        }
-    };
-
+        await axios.get(`https://at-africa-backend-5hfnpu09x-michaelutoh.vercel.app/portfolios`)
+            .then((res) => {
+                console.log(res);
+                setPortfolioData(res.data.portfolios);
+            }).catch((err) => {
+                console.error(err);
+            })
+    }
     useEffect(() => {
         handlePortfolioData()
     }, [])
 
     const matchingPortfolio = portfolioData.find((portfolio) => portfolio.risk_score === tolerance);
-    console.log('------>', portfolioData);
 
     return (
         <>
