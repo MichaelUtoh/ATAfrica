@@ -12,7 +12,7 @@ const PortfolioCard = () => {
     };
 
     const handlePortfolioData = async () => {
-        await axios.get('https://at-africa-backend-5hfnpu09x-michaelutoh.vercel.app/portfolios', {
+        await axios.get('https://at-africa-backend.onrender.com/portfolios', {
             withCredentials: false
         })
             .then((res) => {
