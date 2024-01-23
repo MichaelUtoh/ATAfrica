@@ -10,7 +10,7 @@ const portfolioRoutes = require('./routes/portfolioRoutes');
 const Portfolio = require('./models/portfolios');
 
 app.use(cors({
-    origin: 'https://at-africa-backend-5hfnpu09x-michaelutoh.vercel.app/portfolios',
+    origin: 'https://at-africa-feg8z3hvg-michaelutoh.vercel.app/',
 }))
 app.use(express.json());
 
