@@ -9,10 +9,7 @@ const app = express();
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const Portfolio = require('./models/portfolios');
 
-app.use(cors({
-    origin: 'https://at-africa.vercel.app/'
-}));
-app.options('*', cors())
+app.use(cors());
 app.use(express.json());
 
 // Database
