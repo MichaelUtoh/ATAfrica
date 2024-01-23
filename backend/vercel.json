@@ -18,9 +18,23 @@
                 "PATCH",
                 "OPTIONS"
             ],
-            "headers": {
-                "Access-Control-Allow-Origin": "*"
-            }
+            "headers": [
+                {
+                    "source": "/:path*",
+                    "has": [
+                        {
+                            "type": "query",
+                            "key": "authorized"
+                        }
+                    ],
+                    "headers": [
+                        {
+                            "key": "x-authorized",
+                            "value": "true"
+                        }
+                    ]
+                }
+            ]
         }
     ]
 }
