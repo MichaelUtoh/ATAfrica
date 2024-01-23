@@ -9,11 +9,9 @@ const app = express();
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const Portfolio = require('./models/portfolios');
 
-app.use(cors({
-    origin: 'http://localhost:8080'
-}))
+app.use(cors({ origin: true }));
 app.use(express.json());
-app.options('/portfolios', cors())
+app.options('*', cors());
 
 // Database
 connectDB();

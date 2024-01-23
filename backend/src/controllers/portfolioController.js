@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const PortfolioModel = require('../models/portfolios');
-var cors = require('cors')
 
 const PortfolioController = {
     getPortfolioByRiskScore: async (req, res) => {
@@ -21,7 +20,7 @@ const PortfolioController = {
         }
     },
 
-    getPortfolios: cors(), async function(req, res) {
+    getPortfolios: async (req, res) => {
         try {
             await mongoose.connect(process.env.MONGODB_URI);
             const page = parseInt(req.query.page) || 1;
