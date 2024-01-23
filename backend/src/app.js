@@ -9,24 +9,8 @@ const app = express();
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const Portfolio = require('./models/portfolios');
 
-
-// var corsOptions = {
-//     origin: 'https://at-africa.vercel.app/http://example.com',
-//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-// }
-
-app.use(cors({ origin: true }));
+app.use(cors());
 app.use(express.json());
-// app.options('*', cors());
-
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.header(
-        "Access-Control-Allow-Headers",
-        "Origin, X-Requested-With, Content-Type, Accept"
-    );
-    next();
-});
 
 // Database
 connectDB();
