@@ -21,6 +21,7 @@ const PortfolioController = {
     },
 
     getPortfolios: async (req, res) => {
+        res.setHeader('Access-Control-Allow-Origin', '*');
         try {
             await mongoose.connect(process.env.MONGODB_URI);
             const page = parseInt(req.query.page) || 1;
