@@ -12,9 +12,7 @@ const PortfolioCard = () => {
     };
 
     const handlePortfolioData = async () => {
-        await axios.get('https://at-africa-backend.onrender.com/portfolios', {
-            withCredentials: false
-        })
+        await axios.get('https://at-africa-backend.onrender.com/portfolios')
             .then((res) => {
                 console.log(res);
                 setPortfolioData(res.data.portfolios);
