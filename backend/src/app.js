@@ -9,10 +9,22 @@ const app = express();
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const Portfolio = require('./models/portfolios');
 
-app.use(cors())
+const whitelist = ['http://localhost:8080', 'https://at-africa-h5e62thgw-michaelutoh.vercel.app/'];
+app.options('*', cors());
+
+const corsOptions = {
+    credentials: true,
+    origin: (origin, callback) => {
+        if (whitelist.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+};
+app.use(cors(corsOptions))
 app.use(express.json());
 
-// Database
 connectDB();
 
 
