@@ -9,7 +9,7 @@ const app = express();
 const portfolioRoutes = require('./routes/portfolioRoutes');
 const Portfolio = require('./models/portfolios');
 
-app.use(cors());
+app.use(cors({ origin: 'https://at-africa-eehhl7ogj-michaelutoh.vercel.app' }));
 app.use(express.json());
 
 // Database
